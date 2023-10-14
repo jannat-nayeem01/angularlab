@@ -1,0 +1,112 @@
+
+<!-- Task 1-->
+<p style="font-weight: bold;">Task 1 - Highlight</p>
+<hr/>
+<p Highlight>form works!</p>
+<hr/>
+
+<p style="font-weight: bold;">Task 1 - Disable Button</p>
+
+<button appButtonclick>Click to Disable </button>
+<hr/>
+<!-- Task 2-->
+<p style="font-weight: bold;">Task2 - ngIf</p>
+<button *ngIf="checkif;then truetemplate; else falsetemplate">Check NgIF</button>
+<ng-template #truetemplate>This is NgIf true template</ng-template>
+<ng-template #falsetemplate>This is NgIf false template</ng-template>
+<hr/>
+<p style="font-weight: bold;">Task2 - ngFor</p>
+<p style="font-weight: bold;">Showing values of people array:</p>
+<ul>
+
+    <li *ngFor="let p of people">
+        <p>Name:{{p.name}} </p>
+        <p>ID:{{p.ID}} </p>
+        <br/>
+
+    </li>
+</ul>
+<hr/>
+<p style="font-weight: bold;">Task2 - ngSwitch</p>
+<div [ngSwitch]="color">
+<p *ngSwitchCase="'red'">You Picked Color: red</p>
+<p *ngSwitchCase="'blue'">You Picked Color: blue</p>
+<p *ngSwitchCase="'black'">You Picked Color: black</p>
+</div>
+
+<hr/>
+<!-- Task 3-->
+
+<p style="font-weight: bold;">Task3 - CLICK Events</p>
+<button (click)="toggleCollapse()">Click to Expand/Collapse</button>
+<ul *ngIf="!isCollapse">
+
+    <li *ngFor="let p of people">
+        <p>Name:{{p.name}} </p>
+        <p>ID:{{p.ID}} </p>
+        <br/>
+
+    </li>
+</ul>
+<hr/>
+
+<p style="font-weight: bold;">Task3 - Keyup Event</p>
+<label>Type Something, Output will increase:</label>
+<input type="text" #key (keyup)="onkeyup(key.value)">
+<p >Output: {{output}}</p>
+<hr/>
+
+<!-- Task 4-->
+
+<p style="font-weight: bold;">Task4 - Template Driven Form</p>
+
+<hr/>
+<h2>Registration Form</h2>
+<br/>
+
+
+
+
+<!-- <form [formGroup]="profileForm">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" formControlName="firstName">
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" formControlName="lastName">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="text" id="email" formControlName="email">
+    </div>
+    <div formGroupName="address">
+    <label for="street">Street:</label>
+    <input type="text" id="street" formControlName="street">
+
+    <label for="city">City:</label>
+    <input type="text" id="city" formControlName="city">
+
+    <label for="zipCode">Zip Code:</label>
+    <input type="text" id="zipCode" formControlName="zipCode">
+
+</div>
+    <div>
+      <label>Gender:</label>
+      <label>
+        <input type="radio" formControlName="gender" value="male"> Male
+      </label>
+      <label>
+        <input type="radio" formControlName="gender" value="female"> Female
+      </label>
+      <label>
+        <input type="radio" formControlName="gender" value="other"> Other
+      </label>
+    </div>
+
+  </form>
+
+  <form [formGroup]="profileForm" (ngSubmit)="OnSubmit()"></form>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  
+-->

@@ -1,0 +1,23 @@
+<p>registration works!</p>
+
+<form #f="ngForm" (ngSubmit)="OnSubmit(f)">
+    <div class="formGroup">
+        <label for="Name">Name:</label>
+       <!--  <input type="text" class="FormControl" name="name" {(ngModel)}="model.name">  -->
+    </div>
+    <div class="formGroup">
+        <label for="Email">Email:</label>
+        <!--<input type="email"  name="email" required [(ngModel)]="model.email"> -->
+    </div>
+    <div>
+        <label for="Password">Password:</label>
+        <!-- <input type="text"  name="password"   [(ngModel)]="model.password"> -->
+    </div>
+    <div>
+        <label for="ConfirmPassword">Confirm Password:</label>
+        <!-- <input type="text" name="confirmPassword"  [(ngModel)]="model.confirmPassword"> -->
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<pre>{{f.value | json}}</pre>
