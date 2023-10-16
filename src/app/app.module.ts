@@ -10,6 +10,8 @@ import { Test2Directive } from './form/test2.directive';
 import { ButtonclickDirective } from './form/buttonclick.directive';
 import { NgIfForSwitchDirective } from './form/ng-if-for-switch.directive';
 import { RegistrationComponent } from './registration/registration.component';
+import { TemplateLoginComponent } from './template-login/template-login.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { RegistrationComponent } from './registration/registration.component';
     ButtonclickDirective,
     NgIfForSwitchDirective,
     RegistrationComponent,
+    TemplateLoginComponent,
+    ReactiveFormComponent,
 
   ],
   imports: [

@@ -44,12 +44,7 @@ export class FormComponent {
   constructor(el:ElementRef){
   
   }
-  registrationform=new FormGroup({
-    Name: new FormControl(),
-    Email: new FormControl(),
-    Password: new FormControl(),
-    ConfirmPassword: new FormControl()
-  });
+  
   profileForm= new FormGroup({
     firstName : new FormControl(''),
     lastName: new FormControl(''),
