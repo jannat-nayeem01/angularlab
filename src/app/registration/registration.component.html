@@ -1,23 +1,70 @@
-<p>registration works!</p>
 
 <form #f="ngForm" (ngSubmit)="OnSubmit(f)">
     <div class="formGroup">
         <label for="Name">Name:</label>
-       <!--  <input type="text" class="FormControl" name="name" {(ngModel)}="model.name">  -->
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model.name" #name="ngModel" minlength="8" required>
+    
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+    
+      <div *ngIf="name.errors?.['required']">
+        Name is required.
+      </div>
+      <div *ngIf="name.errors?.['minlength']">
+        Name must be at least 8 characters long.
+      </div>
+    
     </div>
-    <div class="formGroup">
-        <label for="Email">Email:</label>
-        <!--<input type="email"  name="email" required [(ngModel)]="model.email"> -->
-    </div>
-    <div>
-        <label for="Password">Password:</label>
-        <!-- <input type="text"  name="password"   [(ngModel)]="model.password"> -->
-    </div>
-    <div>
-        <label for="ConfirmPassword">Confirm Password:</label>
-        <!-- <input type="text" name="confirmPassword"  [(ngModel)]="model.confirmPassword"> -->
-    </div>
-    <button type="submit">Submit</button>
-</form>
+    
+</div>
 
-<pre>{{f.value | json}}</pre>
+<div class="formGroup">
+    <label for="Email">Email:</label>
+    <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+    
+        <div *ngIf="email.errors?.['required']">
+          Email is required.
+        </div>
+
+      </div>
+</div>
+
+    
+    <div class="formGroup">
+        <label for="Password">Password:</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required minlength="8"> 
+        <div *ngIf="password.invalid && (password.touched || password.dirty)" class="alert alert-danger">
+            <div *ngIf="password.errors?.['required']">
+                Password is required.
+              </div>
+              <div *ngIf="password.errors?.['minlength']">
+                Password must be at least 8 characters long.
+              </div>
+        </div>
+    </div>
+    
+    
+    <div class="formGroup">
+        <label for="ConfirmPassword">Confirm Password:</label>
+        <input type="password" class="form-control" name="confirmPassword"  [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" required> 
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+        <div *ngIf="confirmPassword.errors?.['required']">
+            This Field is required.
+            <div *ngIf="f.submitted && !isPasswordMatch" class="alert alert-danger">
+                Password do not match.
+            </div>
+          </div>
+          <div ></div>
+    </div>
+
+    </div>
+
+    <button type="submit" [disabled]="!f.valid">Submit</button>
+</form>
+<div *ngIf="f.submitted">
+    <pre>{{f.value | json}}</pre>
+
+</div>
+
+
+<h1>Login Form</h1>
